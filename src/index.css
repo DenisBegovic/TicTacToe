@@ -1,0 +1,88 @@
+
+body {
+    background: rgb(255,243,214);
+    background: linear-gradient(90deg, rgba(255,243,214,0.6082808123249299) 0%, rgba(255,255,255,1) 50%, rgba(251,201,201,0.6026785714285714) 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Player info/header */
+.header {
+    text-align: center;
+    font-family: "Jersey 25", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 48px;
+}
+
+/* Playing area */
+.playable-area {
+    width: 580px;
+    height: 580px;
+    background-color: rgba(231, 231, 231, 1);
+    border-radius: 35px;
+
+    padding: 5px;
+    margin: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    align-items: center;
+    justify-content: center;
+}
+
+.field {
+    width: 183px;
+    height: 183px;
+    border-radius: 20px;
+    background-color: white;
+
+    margin-left: 4px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.input-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-area > input {
+    text-align: center;
+}
+
+.input-area > h3 {
+    margin: 0px;
+}
+
+.starting-screen {
+    background-color: white;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    margin-top: 20%;
+}
+
+.starting-screen > button {
+    width: 100px;
+    height: 30px;
+    margin-top: 1rem;
+    background-color: antiquewhite;
+    border: 1px solid black;
+    border-radius: 3px;
+}
