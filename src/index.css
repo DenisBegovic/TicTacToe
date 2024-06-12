@@ -16,6 +16,13 @@ body {
     font-size: 48px;
 }
 
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Playing area */
 .playable-area {
     width: 580px;
@@ -45,6 +52,31 @@ body {
     align-items: center;
     cursor: pointer;
 }
+
+/* Restart button */
+
+.restart {
+    width: 200px;
+    height: 70px;
+    border-radius: 5px;
+
+    background-color: black;
+    color: white;
+
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: x-large;
+
+    
+}
+
+.restart:hover {
+    color: black;
+    background-color: purple;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Starting screen */
 
 .input-container {
     display: flex;

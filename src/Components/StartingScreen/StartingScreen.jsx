@@ -6,7 +6,7 @@ function StartingScreen(props) {
     const [name2, setName2] = useState('');
     
     function onStart() {
-        props.startGame(name1, name2);
+        props.startGame(name1 === '' ? "Player1" : name1, name2 === '' ? "Player2" : name2);
     }
 
     return <div className="starting-screen">

@@ -13,6 +13,11 @@ function Square(props) {
             });
             setIsClicked(true);
             props.nextMove(props.id);
+
+            setTimeout(() => {
+                setIsClicked(false);
+                setSquareIcon();
+            }, 8000);
         }
     }
 

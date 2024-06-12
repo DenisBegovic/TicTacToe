@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Header from "./Header";
 import Square from './Square';
+import RestartGame from './Restart';
 
 const winningCombinations = [
   [1, 2, 3],
@@ -15,17 +16,13 @@ const winningCombinations = [
 
 function checkForWinner(player) {
   const inputs = player.moves;
-  console.log(`${player.name}'s inputs are: || ${inputs} ||`);
   for (let j = 0; j < winningCombinations.length; j++) {
       let combination = winningCombinations[j];
-      console.log(`Checking for this combination: || ${combination} ||`);
       let i = 0;
       while (inputs.includes(combination[i]) && i < combination.length) {
-          console.log(`   Found number ${combination[i]}`);
           i++;
       }
       if (i == 3) {
-          console.log(`       Winning combination is ${combination}\n`);
           return [true, combination];
       }
   }
@@ -33,15 +30,12 @@ function checkForWinner(player) {
 }
 
 
-function Game({players}) {
+function Game({players, refreshGame}) {
   const [ player1, player2 ] = players;   
   const [gameWon, setGameWon] = useState(false); 
   const [winnerSquares, setWinnerSquares] = useState([]);
-  let moveIndex = 0;
 
-  function updateMoveIndex() {
-    moveIndex = moveIndex === 0 ? 1 : 0;
-  }
+  let moveIndex = 0;
 
   function getCurrentPlayer() {
     return moveIndex === 0 ? player1 : player2;
@@ -52,20 +46,13 @@ function Game({players}) {
   }
 
   function nextMove(squareID) {
-    console.log(`Current move number ${moveIndex}`);
-    updateMovesArray(squareID);
+    getCurrentPlayer().moves.push(squareID);
     let [winnerExists, combination] = checkForWinner(getCurrentPlayer());
     if (winnerExists) {
       setGameWon(true);
       setWinnerSquares(combination);
     }
-    updateMoveIndex();
-  }
-
-  function updateMovesArray(squareID) {
-    getCurrentPlayer().moves.push(squareID);
-    console.log(`${player1.name} moves: ${player1.moves} `);
-    console.log(`${player2.name} moves: ${player2.moves} `);
+    moveIndex = moveIndex === 0 ? 1 : 0;
   }
 
   function createSquares() {
@@ -76,13 +63,19 @@ function Game({players}) {
       return squares;
   }
 
+  function onRestart() {
+    player1.moves = [];
+    player2.moves = [];
+    refreshGame();
+  }
+
   return <div className='main'>
-            <Header getCurrentPlayer={getCurrentPlayer} />
+            <Header />
             <div className="playable-area">
                 {createSquares()}
             </div>
+            <RestartGame restart={onRestart} />
           </div>
-  
 }
 
 export default Game;
