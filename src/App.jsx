@@ -18,7 +18,6 @@ function App() {
 
   function refreshGame() {
     setSeed(seed + 1);
-    console.log(`Seed Changed`);
   }
 
   function startGame(name1, name2) {

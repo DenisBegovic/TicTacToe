@@ -63,7 +63,7 @@ body {
     background-color: black;
     color: white;
 
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: 'Courier New', Courier, monospace;
     font-size: x-large;
 
     
@@ -77,6 +77,15 @@ body {
 }
 
 /* Starting screen */
+
+.title {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 700;
+    font-size: 2.5rem;
+    text-align: center;
+    position: relative;
+    top: 100px
+}
 
 .input-container {
     display: flex;
